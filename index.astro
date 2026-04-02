@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+
+const posts = await getCollection('news');
+---
+<MainLayout title="でんでんの飼育小屋">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <h1>HOME</h1>
+  <ul>
+    {posts.map(post => (
+      <li>
+        <a href={`/news/${post.slug}`}>{post.data.title}</a>
+        <span>({post.data.date.toLocaleDateString()})</span>
+      </li>
+    ))}
+  </ul>
+</MainLayout>
+
+<style is:global>
+body {
+  background-image: url('public/images/denden_header2.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    background-size: contain;
+    background-position: bottom center;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+</style>
