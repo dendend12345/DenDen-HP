@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+
+const posts = await getCollection('news');
+---
+<MainLayout title="でんでんの飼育小屋">
+  <h1>NEWS 📝</h1>
+  <ul>
+    {posts.map(post => (
+      <li>
+        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        <span>({post.data.date.toLocaleDateString()})</span>
+      </li>
+    ))}
+  </ul>
+</MainLayout>

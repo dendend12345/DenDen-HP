@@ -1,0 +1,10 @@
+{
+  "name": "denden-hp",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0"
+  },
+  "dependencies": {
+    "astro": "latest"
+  }
+}
