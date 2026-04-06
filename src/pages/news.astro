@@ -9,7 +9,7 @@ const posts = await getCollection('news');
   <ul>
     {posts.map(post => (
       <li>
-        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        <a href={`/news/${post.slug}`}>{post.data.title}</a>
         <span>({post.data.date.toLocaleDateString()})</span>
       </li>
     ))}
