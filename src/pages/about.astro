@@ -4,48 +4,31 @@ import MainLayout from '../layouts/MainLayout.astro';
 <MainLayout title="でんでんの飼育小屋">
   <h1>ABOUT</h1>
   
-  {/* 全体を横並びにして、縦方向を中央揃えにするための囲み（Flexbox） */}
-  <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
     
-    {/* 左側：テキストエリア */}
-    <div style="flex: 1;">
-      <h1>でんでん</h1>
-      <p>マルチクリエイター(自称)として活動しているかたつむり🐌</p>
-      <p>動画編集やサムネイル作成、ゲームサーバー構築やイベント運営など、配信者や動画投稿者を裏から支える活動を行っています。</p>
-      
-      <h2>活動内容</h2>
-
-      <p>1.動画編集</p>
-      <!-- <p>YouTube用動画やコマーシャル用の動画制作</p> -->
-
-      <p>2.サムネイル作成</p>
-      <!-- <p>動画投稿 / 配信プラットフォームや、HPなどのバナーで使える画像制作</p> -->
-
-      <p>3.ロゴ制作</p>
-      <!-- <p>自身の看板となるロゴ制作</p> -->
-
-      <p>4.アニメーション作成</p>
-      <!-- <p>モーショングラフィックスを用いたカットインや配信のオーバーレイ、歌ってみた動画、キルクリップなどを作成</p> -->
-
-      <p>5.企画補助</p>
-      <!-- <p>参加型やカスタム大会などのイベントを開催するにあたっての案出しや運営を補助</p> -->
-
-      <p>6.ゲームサーバー構築</p>
-      <!-- <p>MinecraftやRustといったゲームのプライベートサーバーの構築</p> -->
-
-      <p>7.Minecraftゲーム制作</p>
-      <!-- <p>オリジナルのデータパック、プラグイン開発、アドイン開発</p> -->
-    </div>
-
-    {/* 右側：画像エリア（右端の縦中央に配置されます） */}
-    <div style="flex-shrink: 0;">
+    <div style="flex-shrink: 0; max-width: 100%;">
       <img 
         src="/images/dendenicon.png" 
         alt="でんでんアイコン" 
         width={400} 
         height={400} 
-        style="display: block;"
+        style="display: block; max-width: 100%; height: auto;"
       />
+    </div>
+
+    <div style="flex: 1; min-width: 0; min-width: 280px;">
+      <h1>でんでん</h1>
+      <p>マルチクリエイター(自称)として活動しているかたつむり🐌</p>
+      <p>動画編集やサムネイル作成、ゲームサーバー構築やイベント運営など、配信者や動画投稿者を裏から支える活動を行っています。</p>
+      
+      <h2>活動内容</h2>
+      <p>①動画編集</p>
+      <p>②サムネイル作成</p>
+      <p>③ロゴ制作</p>
+      <p>④アニメーション作成</p>
+      <p>⑤企画補助</p>
+      <p>⑥ゲームサーバー構築</p>
+      <p>⑦Minecraftゲーム制作</p>
     </div>
 
   </div>

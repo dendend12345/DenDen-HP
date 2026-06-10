@@ -9,6 +9,7 @@ const posts = await getCollection('news');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <h1>HOME</h1>
+  <h3>新着お知らせ</h3>
   <ul>
     {posts.map(post => (
       <li>
