@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import partytown from '@astrojs/partytown';
 
 export default defineConfig({
   server: {
@@ -10,4 +11,13 @@ export default defineConfig({
       interval: 100,
     },
   },
+
+  integrations: [
+    partytown({
+      config: {
+        forward: ['gtag', 'dataLayer.push'],
+      },
+    }),
+  ],
+
 });
