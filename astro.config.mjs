@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import partytown from '@astrojs/partytown';
+// import partytown from '@astrojs/partytown';
 
 export default defineConfig({
   server: {
     host: true,
-    site: 'https://<username>.github.io',
-    base: '/DenDen-HP', // リポジトリ名をスラッシュで囲む
+    site: 'https://dendend12345.com',
+    //base: '/DenDen-HP', // リポジトリ名をスラッシュで囲む
+    base: '/',
     watch: {
       usePolling: true,
       interval: 100,
@@ -13,12 +14,14 @@ export default defineConfig({
   },
 
   integrations: [
+    /*
     partytown({
       config: {
         lib: '/*partytown',
         forward: ['gtag', 'dataLayer.push'],
       },
     }),
+    */
   ],
 
 });
