@@ -7,7 +7,9 @@ const posts = await getCollection('news');
 <MainLayout title="でんでんの飼育小屋">
   <h1>NEWS 📝</h1>
   <ul>
-    {posts.map(post => (
+    {posts
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .map(post => (
       <li>
         <a href={`/news/${post.slug}`}>{post.data.title}</a>
         <span>({
