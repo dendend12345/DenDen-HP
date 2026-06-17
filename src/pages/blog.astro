@@ -1,4 +1,4 @@
----
+  ---
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 
@@ -11,7 +11,7 @@ const posts = await getCollection('blog');
       <li>
         <a href={`/blogs/${post.slug}`}>{post.data.title}</a>
         <span>({
-          new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
+          new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
           .toISOString().slice(0, 10).replace(/-/g, '/')
         })</span>
       </li>
