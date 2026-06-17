@@ -9,7 +9,7 @@ const posts = await getCollection('blog');
   <ul>
     {posts.map(post => (
       <li>
-        <a href={`/blogs/${post.slug}`}>{post.data.title}</a>
+        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
         <span>({
           new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
           .toISOString().slice(0, 10).replace(/-/g, '/')
