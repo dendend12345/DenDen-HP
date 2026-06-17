@@ -2,16 +2,19 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 
-const posts = await getCollection('news');
+const newsposts = await getCollection('news');
+const blogPosts = await getCollection('blog');
+
 ---
 <MainLayout title="でんでんの飼育小屋">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <h1>HOME</h1>
+  <p>ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。</p>
   <h3>新着お知らせ</h3>
   <ul>
-    {posts.map(post => (
+    {newsposts.map(post => (
       <li>
         <a href={`/news/${post.slug}`}>{post.data.title}</a>
         <span>({
@@ -23,17 +26,16 @@ const posts = await getCollection('news');
   </ul>
     <h3>新着ブログ</h3>
   <ul>
-    {posts.map(post => (
+    {blogPosts.map(post => (
       <li>
         <a href={`/blogs/${post.slug}`}>{post.data.title}</a>
         <span>({
-          new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
+          new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
           .toISOString().slice(0, 10).replace(/-/g, '/')
         })</span>
       </li>
     ))}
   </ul>
-  <p>ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。</p>
 </MainLayout>
 
 <style is:global>
