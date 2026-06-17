@@ -21,7 +21,7 @@ const { Content } = await entry.render();
 <MainLayout title={entry.data.title}>
   <article>
     <h1>{entry.data.title}</h1>
-    <p>公開日: {entry.data.date.toLocaleDateString()}</p>
+    <p>公開日: {entry.data.date.toLocaleDateString('ja-JP'))}</p>
     <hr />
     <Content /> 
   </article>
