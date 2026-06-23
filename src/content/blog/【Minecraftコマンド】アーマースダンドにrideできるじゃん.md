@@ -7,6 +7,8 @@ tags:
   - rideコマンド
 ---
 
+<img src="/images/blog/2/sam.png" alt="code" style="max-width: 100%; height: auto;"/>
+
 ## 何で誰も教えてくれなかったんだ…(自分で気づけよ)
 
 ※Java版 バージョン1.20.4の話です
