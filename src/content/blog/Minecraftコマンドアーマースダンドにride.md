@@ -3,7 +3,7 @@ title: "【Minecraftコマンド】なんで誰も教えてくれなかったん
 pubDate: 2026-06-23
 tags:
   - Minecraft 
-  - コマンド
+  - Minecraftコマンド
   - rideコマンド
 ---
 
