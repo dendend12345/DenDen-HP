@@ -7,7 +7,7 @@ tags:
   - 動画投稿
 ---
 
-<img src="/images/blog/3/sam.png" alt="動画編集の有償依頼" style="max-width: 100%; height: auto;"/>
+<img src="/images/blog/3/sam.png" alt="sam" style="max-width: 100%; height: auto;"/>
 
 ## え？楽してVtuberになりたい？
 ## それなら「MOZ-3 Anime Studio」がおすすめです。
