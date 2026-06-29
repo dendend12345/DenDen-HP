@@ -24,17 +24,19 @@ const blogPosts = await getCollection('blog');
       </li>
     ))}
   </ul>
-    <h3>新着ブログ</h3>
+  <h3>新着ブログ</h3>
   <ul>
-    {blogPosts.map(post => (
-      <li>
-        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-        <span>({
-          new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
-          .toISOString().slice(0, 10).replace(/-/g, '/')
-        })</span>
-      </li>
-    ))}
+    {blogPosts
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .map(post => (
+        <li key={post.slug}> {}
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <span>({
+            new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
+            .toISOString().slice(0, 10).replace(/-/g, '/')
+          })</span>
+        </li>
+      ))}
   </ul>
 </MainLayout>
 
