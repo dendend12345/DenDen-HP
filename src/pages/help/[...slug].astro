@@ -15,37 +15,39 @@ interface Props {
   entry: CollectionEntry<'help'>;
 }
 const { entry } = Astro.props;
-
-if (import.meta.env.PROD && entry.data.draft) {
-  const url = new URL(Astro.request.url);
-  if (url.searchParams.get('preview') !== 'secret') {
-    return new Response(null, { status: 404, statusText: 'Not Found' });
-  }
-}
-
 const { Content } = await entry.render();
 ---
 
 <MainLayout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
-  <article>
-    <Content />
-  </article>
-</MainLayout>
+  {entry.data.draft ? (
+    <div id="preview-container" style="display: none;">
+      <h1>{entry.data.title}</h1>
+      <article>
+        <Content />
+      </article>
+    </div>
 
-<MainLayout title={entry.data.title}>
-  <article>
+    <div id="not-found-message" style="display: block; text-align: center; margin-top: 40px;">
+      <h1>404 - File not found</h1>
+      <p>お探しのページは存在しないか、削除された可能性があります。</p>
+    </div>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('preview') === 'secret') {
+        const previewDiv = document.getElementById('preview-container');
+        const errorDiv = document.getElementById('not-found-message'); // ⭕「404Div」から「errorDiv」に変更
+        
+        if (previewDiv && errorDiv) {
+          previewDiv.style.display = 'block';
+          errorDiv.style.display = 'none';
+        }
+      }
+    </script>
+  ) : (
     <h1>{entry.data.title}</h1>
-    <p>公開日: {entry.data.helpPubDate.toLocaleDateString('ja-JP')}</p>
-    <hr />
-    <Content /> 
-  </article>
+    <article>
+      <Content />
+    </article>
+  )}
 </MainLayout>
-
-<style>
-  article {
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-</style>
