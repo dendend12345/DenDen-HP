@@ -5,7 +5,7 @@ tags:
   - Minecraft
   - G1GC
   - サーバー
-draft: false
+draft: true
 ---
 
 <img src="/images/blog/6/sam.png" alt="G1GCについてBotで検証" style="max-width: 100%; height: auto;"/>
