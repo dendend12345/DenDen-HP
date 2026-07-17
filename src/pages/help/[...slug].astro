@@ -15,8 +15,23 @@ interface Props {
   entry: CollectionEntry<'help'>;
 }
 const { entry } = Astro.props;
+
+if (import.meta.env.PROD && entry.data.draft) {
+  const url = new URL(Astro.request.url);
+  if (url.searchParams.get('preview') !== 'secret') {
+    return new Response(null, { status: 404, statusText: 'Not Found' });
+  }
+}
+
 const { Content } = await entry.render();
 ---
+
+<MainLayout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <article>
+    <Content />
+  </article>
+</MainLayout>
 
 <MainLayout title={entry.data.title}>
   <article>
