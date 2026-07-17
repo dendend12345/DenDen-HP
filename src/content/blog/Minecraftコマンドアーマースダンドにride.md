@@ -1,10 +1,11 @@
 ---
-title: "【Minecraftコマンド】なんで誰も教えてくれなかったんだ！ ～アーマースダンドにrideできるじゃん～"
-pubDate: 2026-06-23
+title: "【Minecraft】なんで誰も教えてくれなかったんだ！ ～アーマースダンドにrideできるじゃん～"
+pubDate: 2026-06-22
 tags:
   - Minecraft 
-  - Minecraftコマンド
+  - コマンド
   - rideコマンド
+draft: false
 ---
 
 <img src="/images/blog/2/sam.png" alt="code" style="max-width: 100%; height: auto;"/>

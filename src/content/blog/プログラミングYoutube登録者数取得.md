@@ -5,6 +5,7 @@ tags:
   - スプレッドシート
   - Youtube
   - 配信者
+draft: false
 ---
 
 <img src="/images/blog/5/sam.png" alt="動画編集の有償依頼" style="max-width: 100%; height: auto;"/>

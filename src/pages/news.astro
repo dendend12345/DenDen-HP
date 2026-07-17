@@ -2,7 +2,10 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 
-const posts = await getCollection('news');
+const posts = await getCollection('news', ({ data }) => {
+  return data.draft !== true;
+});
+
 ---
 <MainLayout title="でんでんの飼育小屋">
   <h1>NEWS 📝</h1>

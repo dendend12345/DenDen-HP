@@ -5,6 +5,7 @@ tags:
   - Vtuber
   - 配信
   - 動画投稿
+draft: false
 ---
 
 <img src="/images/blog/3/sam.png" alt="sam" style="max-width: 100%; height: auto;"/>

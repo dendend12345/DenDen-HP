@@ -5,6 +5,7 @@ tags:
   - Minecraft
   - Simple Voice Chat
   - Minecraftプラグイン
+draft: false
 ---
 ## 【MinecraftSimple】Voice Chatプラグインの導入方法
 

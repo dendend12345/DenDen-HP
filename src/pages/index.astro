@@ -2,8 +2,17 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 
-const newsposts = await getCollection('news');
-const blogPosts = await getCollection('blog');
+const newsposts = await getCollection('news', ({ data }) => {
+  return data.draft !== true;
+});
+
+const blogposts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const helpPosts = await getCollection('help', ({ data }) => {
+  return data.draft !== true;
+});
 
 ---
 <MainLayout title="でんでんの飼育小屋">
@@ -26,13 +35,27 @@ const blogPosts = await getCollection('blog');
   </ul>
   <h3>新着ブログ</h3>
   <ul>
-    {blogPosts
+    {blogposts
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map(post => (
         <li key={post.slug}> {}
           <a href={`/blog/${post.slug}`}>{post.data.title}</a>
           <span>({
             new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
+            .toISOString().slice(0, 10).replace(/-/g, '/')
+          })</span>
+        </li>
+      ))}
+  </ul>
+  <h3>新着ヘルプ</h3>
+  <ul>
+    {helpPosts
+      .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
+      .map(post => (
+        <li key={post.slug}> {}
+          <a href={`/help/${post.slug}`}>{post.data.title}</a>
+          <span>({
+            new Date(post.data.helpPubDate.getTime() + 9 * 60 * 60 * 1000)
             .toISOString().slice(0, 10).replace(/-/g, '/')
           })</span>
         </li>
