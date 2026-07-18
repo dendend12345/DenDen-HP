@@ -1,5 +1,5 @@
 ---
-title: "せっかく「Mine and Slash」と「dungeon_realm」で建てたMODサーバーが起動しない！"
+title: "せっかく「Mine and Slash」と「Dungeon Realm」で建てたMODサーバーが起動しない！"
 helpPubDate: 2026-07-18
 tags:
   - Minecraft
