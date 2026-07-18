@@ -5,7 +5,7 @@ tags:
   - Minecraft
   - MOD
   - サーバー
-draft: true
+draft: false
 ---
 
 ### ご相談者様
