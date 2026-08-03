@@ -1,6 +1,6 @@
 ---
 title: "【Minecraft】サーバーの起動構成のG1GCとZGCを対決させてみる"
-pubDate: 2026-07-30
+pubDate: 2026-08-04
 tags:
   - Minecraft 
   - G1GC
