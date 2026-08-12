@@ -1,0 +1,40 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+const serverIP = "mc.dendend12345.com";
+---
+
+<MainLayout title="でんでんの飼育小屋">
+    <div class="server-status-card">
+    <h2>KinoN様 Minecraftサーバーステータス</h2>
+    <div id="status-indicator">取得中...（10秒ごとに更新）</div>
+    <p id="player-count"></p>
+    </div>
+
+    <script define:vars={{ serverIP }}>
+    async function fetchStatus() {
+        try {
+        const res = await fetch(`https://api.mcstatus.io/v2/status/java/${serverIP}`);
+        const data = await res.json();
+        
+        const indicator = document.getElementById('status-indicator');
+        const count = document.getElementById('player-count');
+
+        if (data.online) {
+            indicator.textContent = "🟢 起動中";
+            count.textContent = `Players: ${data.players.online} / ${data.players.max}`;
+        } else {
+            indicator.textContent = "🔴 オフライン";
+            count.textContent = "";
+        }
+        } catch (e) {
+        document.getElementById('status-indicator').textContent = "⚠️ エラー";
+        }
+    }
+
+    // 初回取得
+    fetchStatus();
+    // 10秒ごとに自動更新（リアルタイム性）
+    setInterval(fetchStatus, 10000);
+    </script>
+
+</MainLayout>
