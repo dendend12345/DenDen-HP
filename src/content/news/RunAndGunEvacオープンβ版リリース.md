@@ -12,4 +12,4 @@ date: 2026-08-24
 銃撃戦をメインとした激しい戦闘を楽しむことができながら、Minecraftのクラフト要素を存分に活かしたゲームを体験できます。<br>
 
 ↓ 詳細はこちら ↓<br>
-https://dendend12345.com/product/ランアンドガンエバック.md
+[https://dendend12345.com/product/ランアンドガンエバック](https://dendend12345.com/product/%E3%83%A9%E3%83%B3%E3%82%A2%E3%83%B3%E3%83%89%E3%82%AC%E3%83%B3%E3%82%A8%E3%83%90%E3%83%83%E3%82%AF.md/)
