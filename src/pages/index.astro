@@ -20,44 +20,59 @@ const helpPosts = await getCollection('help', ({ data }) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <h1>HOME</h1>
-  <p>ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。</p>
-  <h3>新着お知らせ</h3>
+  <h3>ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。</h3>
+  
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <h3 style="margin: 0;">新着お知らせ</h3>
+    <a href="/link">MORE</a>
+  </div>
+  
   <ul>
-    {newsposts.map(post => (
-      <li>
-        <a href={`/news/${post.slug}`}>{post.data.title}</a>
-        <span>({
-          new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
-          .toISOString().slice(0, 10).replace(/-/g, '/')
-        })</span>
+    {newsposts
+      .slice(0, 3)
+      .map(post => (
+        <li>
+          <a href={`/news/${post.slug}`}>{post.data.title}</a>
+          {/* <span>({
+            new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
+            .toISOString().slice(0, 10).replace(/-/g, '/')
+          })</span> */}
       </li>
     ))}
   </ul>
-  <h3>新着ブログ</h3>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <h3 style="margin: 0;">新着ブログ</h3>
+    <a href="/link">MORE</a>
+  </div>
   <ul>
     {blogposts
+      .slice(0, 3)
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map(post => (
         <li key={post.slug}> {}
           <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-          <span>({
+          {/* <span>({
             new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
             .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span>
+          })</span> */}
         </li>
       ))}
   </ul>
-  <h3>新着ヘルプ</h3>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <h3 style="margin: 0;">新着ヘルプ</h3>
+    <a href="/link">MORE</a>
+  </div>
   <ul>
     {helpPosts
+      .slice(0, 3)
       .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
       .map(post => (
         <li key={post.slug}> {}
           <a href={`/help/${post.slug}`}>{post.data.title}</a>
-          <span>({
+          {/* <span>({
             new Date(post.data.helpPubDate.getTime() + 9 * 60 * 60 * 1000)
             .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span>
+          })</span> */}
         </li>
       ))}
   </ul>
