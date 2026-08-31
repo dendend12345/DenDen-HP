@@ -46,8 +46,8 @@ const helpPosts = await getCollection('help', ({ data }) => {
   </div>
   <ul>
     {blogposts
-      .slice(0, 3)
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .slice(0, 3)
       .map(post => (
         <li key={post.slug}> {}
           <a href={`/blog/${post.slug}`}>{post.data.title}</a>
