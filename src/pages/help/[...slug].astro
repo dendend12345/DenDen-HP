@@ -19,35 +19,18 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout title={entry.data.title}>
-  {entry.data.draft ? (
-    <div id="preview-container" style="display: none;">
-      <h1>{entry.data.title}</h1>
-      <article>
-        <Content />
-      </article>
-    </div>
-
-    <div id="not-found-message" style="display: block; text-align: center; margin-top: 40px;">
-      <h1>404 - File not found</h1>
-      <p>お探しのページは存在しないか、削除された可能性があります。</p>
-    </div>
-
-    <script>
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('preview') === 'secret') {
-        const previewDiv = document.getElementById('preview-container');
-        const errorDiv = document.getElementById('not-found-message'); // ⭕「404Div」から「errorDiv」に変更
-        
-        if (previewDiv && errorDiv) {
-          previewDiv.style.display = 'block';
-          errorDiv.style.display = 'none';
-        }
-      }
-    </script>
-  ) : (
+  <article>
     <h1>{entry.data.title}</h1>
-    <article>
-      <Content />
-    </article>
-  )}
+    <p>公開日: {entry.data.helpPubDate.toLocaleDateString('ja-JP')}</p>
+    <hr />
+    <Content /> 
+  </article>
 </MainLayout>
+
+<style>
+  article {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+</style>
