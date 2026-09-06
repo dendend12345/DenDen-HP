@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
+import ListItemCard from '../components/ListItemCard.astro';
+
 
 const newsposts = await getCollection('news', ({ data }) => {
   return data.draft !== true;
@@ -38,21 +40,21 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
   <br><br>
     
-    <a href="http://localhost:4321/news">MORE</a>
+    <a href="http://localhost:4321/news" class="no-underline hover:underline">MORE</a>
   </div>
   
-  <ul>
+  <ul class=class="space-y-1">
     {newsposts
       .slice(0, 3)
       .map(post => (
-        <li>
-          <a href={`/news/${post.slug}`}>{post.data.title}</a>
-          {/* <span>({
-            new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
-            .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span> */}
+        <ListItemCard
+          basePath="news"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.date}
+        />
+      ))}
       </li>
-    ))}
   </ul>
 
   <br>
@@ -66,18 +68,18 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
     <a href="https://dendend12345.com/blog/">MORE</a>
   </div>
-  <ul>
+
+  <ul class=class="space-y-1">
     {blogposts
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .slice(0, 3)
       .map(post => (
-        <li key={post.slug}> {}
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-          {/* <span>({
-            new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
-            .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span> */}
-        </li>
+        <ListItemCard
+          basePath="blog"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+        />
       ))}
   </ul>
 
@@ -93,18 +95,18 @@ const helpPosts = await getCollection('help', ({ data }) => {
     
     <a href="http://localhost:4321/help">MORE</a>
   </div>
-  <ul>
+  <ul lass="space-y-1">
     {helpPosts
       .slice(0, 3)
       .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
       .map(post => (
-        <li key={post.slug}> {}
-          <a href={`/help/${post.slug}`}>{post.data.title}</a>
-          {/* <span>({
-            new Date(post.data.helpPubDate.getTime() + 9 * 60 * 60 * 1000)
-            .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span> */}
-        </li>
+        <ListItemCard
+          key={post.slug}
+          basePath="help"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.helpPubDate}
+        />
       ))}
   </ul>
 </MainLayout>
