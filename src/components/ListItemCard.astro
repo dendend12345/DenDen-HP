@@ -1,0 +1,27 @@
+---
+interface Props {
+  basePath: string;
+  slug: string;
+  title: string;
+  pubDate: Date;
+  suffix?: string;
+}
+
+const { basePath, slug, title, pubDate, suffix } = Astro.props;
+
+// JST (+9時間) フォーマット処理
+const formattedDate = new Date(pubDate.getTime() + 9 * 60 * 60 * 1000)
+  .toISOString()
+  .slice(0, 10)
+  .replace(/-/g, '/');
+---
+
+<li>
+  <a
+    href={`/${basePath}/${slug}`}
+    class="inline-flex items-center gap-2 text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-110 origin-left"
+  >
+    <span>{title}</span>
+    <span class="text-xs text-neutral-500 font-mono">({formattedDate}{suffix ? ` ${suffix}` : ''})</span>
+  </a>
+</li>

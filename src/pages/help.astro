@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
+import ListItemCard from '../components/ListItemCard.astro';
 
 const posts = await getCollection('help', ({ data }) => {
   return data.draft !== true;
@@ -8,18 +9,23 @@ const posts = await getCollection('help', ({ data }) => {
 
 ---
 <MainLayout title="でんでんの飼育小屋">
-  <h1>でんでんのヘルプデスク</h1>
-  <ul>
-    {posts
-      .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
-      .map(post => (
-        <li key={post.slug}>
-          <a href={`/help/${post.slug}`}>{post.data.title}</a>
-          <span>({
-            new Date(post.data.helpPubDate.getTime() + 9 * 60 * 60 * 1000)
-            .toISOString().slice(0, 10).replace(/-/g, '/')
-          })</span>
-        </li>
-      ))}
-  </ul>
+  <div class="text-3xl font-bold tracking-tight text-white-900">
+    ヘルプデスク 📰
+  </div>
+
+  <br>
+
+  <ul class="space-y-3">
+      {posts
+        .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
+        .map(post => (
+          <ListItemCard
+            basePath="help"
+            slug={post.slug}
+            title={post.data.title}
+            pubDate={post.data.helpPubDate}
+          />
+        ))}
+    </ul>
+
 </MainLayout>

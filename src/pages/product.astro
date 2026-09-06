@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
+import ListItemCard from '../components/ListItemCard.astro';
 
 const posts = await getCollection('product', ({ data }) => {
   return data.draft !== true;
@@ -8,18 +9,26 @@ const posts = await getCollection('product', ({ data }) => {
 
 ---
 <MainLayout title="でんでんの飼育小屋">
-  <h1>PRODUCT</h1>
-  <ul>
-    {posts
+
+  <div class="text-3xl font-bold tracking-tight text-white-900">
+    PRODUCT 📦
+  </div>
+
+  <br>
+
+  <ul class="space-y-3">
+  {posts
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .map(post => (
-      <li>
-        <a href={`/product/${post.id}`}>{post.data.title}</a>
-        <span>({
-          new Date(post.data.date.getTime() + 9 * 60 * 60 * 1000)
-          .toISOString().slice(0, 10).replace(/-/g, '/')
-        }　最終更新)</span>
-      </li>
+      <ListItemCard
+        basePath="product"
+        slug={post.id}
+        title={post.data.title}
+        pubDate={post.data.date}
+        suffix="最終更新"
+      />
     ))}
-  </ul>
+</ul>
+  
+ 
 </MainLayout>
