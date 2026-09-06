@@ -1,0 +1,29 @@
+.newContent{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 150%;
+  display: flex;
+}
+
+ul li:hover {
+  background-color: #0eaa00;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.25s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
