@@ -1,22 +1,12 @@
-import { defineConfig } from 'astro/config';
+import typography from '@tailwindcss/typography';
 
-import tailwind from '@astrojs/tailwind';
-
-export default defineConfig({
-  // ↓ site と base は、server の外側のここに書くのが正しい場所です
-  // お使いのカスタムドメイン
-  site: 'https://dendend12345.com',
-
-  // カスタムドメイン運用の場合は通常 '/'
-  base: '/',
-
-  server: {
-    host: true,
-    watch: {
-      usePolling: true,
-      interval: 100,
-    },
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {},
   },
-
-  integrations: [tailwind()],
-});
+  plugins: [
+    typography,
+  ],
+};

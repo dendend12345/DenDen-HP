@@ -19,12 +19,16 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout title={entry.data.title}>
-  <article>
+  <article class="prose mx-auto">
     <h1>{entry.data.title}</h1>
     <p>公開日: {entry.data.helpPubDate.toLocaleDateString('ja-JP')}</p>
     <hr />
     <Content /> 
   </article>
+</MainLayout>
+
+<MainLayout title={entry.data.title}>
+
 </MainLayout>
 
 <style>

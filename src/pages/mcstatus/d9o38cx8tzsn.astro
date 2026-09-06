@@ -4,16 +4,18 @@ const serverIP = "mc.dendend12345.com";
 ---
 
 <MainLayout title="でんでんの飼育小屋">
-    <div class="server-status-card">
-        <h2>KinoN様 Minecraftサーバーステータス</h2>
-        <h3>サーバーIP: <code>{serverIP}</code></h3>
-        <div id="status-indicator">取得中...（10秒ごとに更新）</div>
-        <p id="player-count"></p>
-        <h3>🔧メンテナンス告知</h3>
-        <p>現在、メンテナンスによるサーバーダウンの予定はありません</p>
-        <h3>📢管理者からのお知らせ</h3>
-        <p>現在、お知らせはありません</p>
-    </div>
+    <article class="prose mx-auto"></article>
+        <div class="server-status-card">
+            <h2>KinoN様 Minecraftサーバーステータス</h2>
+            <h3>サーバーIP: <code>{serverIP}</code></h3>
+            <div id="status-indicator">取得中...（10秒ごとに更新）</div>
+            <p id="player-count"></p>
+            <h3>🔧メンテナンス告知</h3>
+            <p>現在、メンテナンスによるサーバーダウンの予定はありません</p>
+            <h3>📢管理者からのお知らせ</h3>
+            <p>現在、お知らせはありません</p>
+        </div>
+      </article>
 
     <script define:vars={{ serverIP }}>
     async function fetchStatus() {
