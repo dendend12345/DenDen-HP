@@ -19,11 +19,25 @@ const helpPosts = await getCollection('help', ({ data }) => {
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <h1>HOME</h1>
-  <h3>ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。</h3>
+  
+  <div class="text-3xl font-bold tracking-tight text-white-900">
+    HOME
+  </div>
+
+  <br>
+
+  <div class="text-2xl font-bold tracking-tight text-white-900">
+    ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。
+  </div>
   
   <div style="display: flex; align-items: center; gap: 10px;">
-    <h3 style="margin: 0;">新着お知らせ</h3>
+    
+  <div class="text-1xl font-bold tracking-tight text-white-900">
+    新着お知らせ
+  </div>
+
+  <br><br>
+    
     <a href="http://localhost:4321/news">MORE</a>
   </div>
   
@@ -40,8 +54,16 @@ const helpPosts = await getCollection('help', ({ data }) => {
       </li>
     ))}
   </ul>
+
+  <br>
+  
   <div style="display: flex; align-items: center; gap: 10px;">
-    <h3 style="margin: 0;">新着ブログ</h3>
+    <div class="text-1xl font-bold tracking-tight text-white-900">
+      新着ブログ
+    </div>
+
+    <br>
+
     <a href="https://dendend12345.com/blog/">MORE</a>
   </div>
   <ul>
@@ -58,8 +80,17 @@ const helpPosts = await getCollection('help', ({ data }) => {
         </li>
       ))}
   </ul>
+
+  <br>
+
   <div style="display: flex; align-items: center; gap: 10px;">
-    <h3 style="margin: 0;">新着ヘルプ</h3>
+
+    <div class="text-1xl font-bold tracking-tight text-white-900">
+      新着ヘルプ
+    </div>
+
+    <br>
+    
     <a href="http://localhost:4321/help">MORE</a>
   </div>
   <ul>
