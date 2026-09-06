@@ -2,16 +2,24 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 
-const posts = await getCollection('blog');
+const posts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
 ---
 <MainLayout title="でんでんの飼育小屋">
   <h1>飼育小屋通信 📝</h1>
   <ul>
-    {posts.map(post => (
-      <li>
-        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-        <span>({post.data.pubDate.toLocaleDateString()})</span>
-      </li>
-    ))}
-  </ul>
+    {posts
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .map(post => (
+        <li key={post.slug}> {}
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <span>({
+            new Date(post.data.pubDate.getTime() + 9 * 60 * 60 * 1000)
+            .toISOString().slice(0, 10).replace(/-/g, '/')
+          })</span>
+        </li>
+      ))}
+</ul>
 </MainLayout>

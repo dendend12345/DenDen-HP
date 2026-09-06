@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'; 
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const productEntries = await getCollection('product');
+  return productEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'product'>;
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<MainLayout title={entry.data.title}>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <p>公開日: {entry.data.date.toLocaleDateString('ja-JP')}</p>
+    <hr />
+    <Content /> 
+  </article>
+</MainLayout>
+
+<style>
+  article {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+</style>

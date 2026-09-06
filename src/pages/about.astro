@@ -4,10 +4,32 @@ import MainLayout from '../layouts/MainLayout.astro';
 <MainLayout title="でんでんの飼育小屋">
   <h1>ABOUT</h1>
   
-  <body>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
+    
+    <div style="flex-shrink: 0; max-width: 100%;">
+      <img 
+        src="/images/dendenicon.png" 
+        alt="でんでんアイコン" 
+        width={400} 
+        height={400} 
+        style="display: block; max-width: 100%; height: auto;"
+      />
+    </div>
 
-    <img src="/images/dendenicon.png" alt="でんでんアイコン" width={400} height={400} />
+    <div style="flex: 1; min-width: 0; min-width: 280px;">
+      <h1>でんでん</h1>
+      <p>マルチクリエイター(自称)として活動しているかたつむり🐌</p>
+      <p>動画編集やサムネイル作成、ゲームサーバー構築やイベント運営など、配信者や動画投稿者を裏から支える活動を行っています。</p>
+      
+      <h2>活動内容</h2>
+      <p>①動画編集</p>
+      <p>②サムネイル作成</p>
+      <p>③ロゴ制作</p>
+      <p>④アニメーション作成</p>
+      <p>⑤企画補助</p>
+      <p>⑥ゲームサーバー構築</p>
+      <p>⑦Minecraftゲーム制作</p>
+    </div>
 
-  </body>
-
+  </div>
 </MainLayout>
