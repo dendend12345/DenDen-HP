@@ -98,8 +98,9 @@ const helpPosts = await getCollection('help', ({ data }) => {
     </div>
 
     <br>
-    
-    <a href="http://localhost:4321/help" class="no-underline hover:underline">MORE</a>
+    <main transition:animate="slide"></main>
+      <a href="http://localhost:4321/help" class="no-underline hover:underline">MORE</a>
+    </main>
   </div>
   <ul class="space-y-3">
     {helpPosts
