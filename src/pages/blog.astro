@@ -16,16 +16,18 @@ const posts = await getCollection('blog', ({ data }) => {
 
   <br>
 
-  <ul class="space-y-1">
-    {posts
-      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-      .map(post => (
-        <ListItemCard
-          basePath="blog"
-          slug={post.slug}
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-        />
-      ))}
-  </ul>
+  <ul class="space-y-3">
+      {posts
+        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+        .map(post => (
+          <ListItemCard
+            basePath="help"
+            slug={post.slug}
+            title={post.data.title}
+            pubDate={post.data.pubDate}
+          />
+        ))}
+    </ul>
+
+
 </MainLayout>

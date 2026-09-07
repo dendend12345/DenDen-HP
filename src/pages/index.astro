@@ -43,7 +43,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
     <a href="http://localhost:4321/news" class="no-underline hover:underline">MORE</a>
   </div>
   
-  <ul class=class="space-y-1">
+  <ul class=class="space-y-3">
     {newsposts
       .slice(0, 3)
       .map(post => (
@@ -69,7 +69,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
     <a href="https://dendend12345.com/blog/">MORE</a>
   </div>
 
-  <ul class=class="space-y-1">
+  <ul class=class="space-y-3">
     {blogposts
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .slice(0, 3)
@@ -95,7 +95,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
     
     <a href="http://localhost:4321/help">MORE</a>
   </div>
-  <ul lass="space-y-1">
+  <ul class="space-y-3">
     {helpPosts
       .slice(0, 3)
       .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
