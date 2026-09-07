@@ -27,14 +27,3 @@ ul li:hover {
 .fade-in {
   animation: fadeIn 1.5s ease-in;
 }
-
-/* グローバルCSS等で直接指定する場合の例 */
-main h1 {
-  color: #ffffff; /* 見出しを白に */
-}
-main p {
-  color: #e2e8f0; /* 本文を明るいグレーに */
-}
-main a {
-  color: #4ade80; /* リンクを明るい緑などに */
-}
