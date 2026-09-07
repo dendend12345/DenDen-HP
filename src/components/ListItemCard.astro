@@ -16,10 +16,20 @@ const formattedDate = new Date(pubDate.getTime() + 9 * 60 * 60 * 1000)
   .replace(/-/g, '/');
 ---
 
+<!-- <li>
+  <a
+    href={`/${basePath}/${slug}`}
+    class="inline-block py-0.5 leading-tight text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-105 origin-left"
+  >
+    <span>{title}</span>
+    <span class="text-xs text-neutral-500 font-mono ml-2">({formattedDate}{suffix ? ` ${suffix}` : ''})</span>
+  </a>
+</li> -->
+
 <li>
   <a
     href={`/${basePath}/${slug}`}
-    class="inline-flex items-center gap-2 text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-110 origin-left"
+    class="flex items-center gap-2 leading-tight text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-110 origin-left"
   >
     <span>{title}</span>
     <span class="text-xs text-neutral-500 font-mono">({formattedDate}{suffix ? ` ${suffix}` : ''})</span>

@@ -16,7 +16,7 @@ const posts = await getCollection('blog', ({ data }) => {
 
   <br>
 
-  <ul class="space-y-3">
+  <ul class="space-y-1">
     {posts
       .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
       .map(post => (
