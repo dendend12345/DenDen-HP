@@ -1,7 +1,12 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import { ViewTransitions } from 'astro:transitions';
 ---
 <MainLayout title="でんでんの飼育小屋">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ViewTransitions />
+  </head>
   <div class="text-3xl font-bold tracking-tight text-white-900">
     REQUEST
   </div>

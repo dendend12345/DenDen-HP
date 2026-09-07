@@ -19,7 +19,7 @@ const { Content } = await entry.render();
 ---
 
 <MainLayout title={entry.data.title}>
-  <article class="prose mx-auto">
+  <article class="prose prose-invert mx-auto">
     <h1>{entry.data.title}</h1>
     <p>公開日: {entry.data.date.toLocaleDateString('ja-JP')}</p>
     <hr />

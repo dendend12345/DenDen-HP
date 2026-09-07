@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ListItemCard from '../components/ListItemCard.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 
 const posts = await getCollection('help', ({ data }) => {
   return data.draft !== true;
@@ -9,6 +11,10 @@ const posts = await getCollection('help', ({ data }) => {
 
 ---
 <MainLayout title="でんでんの飼育小屋">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ViewTransitions />
+  </head>
   <div class="text-3xl font-bold tracking-tight text-white-900">
     ヘルプデスク 📰
   </div>
@@ -27,5 +33,4 @@ const posts = await getCollection('help', ({ data }) => {
           />
         ))}
     </ul>
-
 </MainLayout>
