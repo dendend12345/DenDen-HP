@@ -43,9 +43,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
     <br><br>
 
-    <main transition:animate="slide">
       <a href="http://localhost:4321/news" class="no-underline hover:underline">MORE</a>
-    </main>
   </div>
   
   <ul class=class="space-y-3">
@@ -70,10 +68,8 @@ const helpPosts = await getCollection('help', ({ data }) => {
     </div>
 
     <br>
-    <main transition:animate="slide"></main>
       <a href="http://localhost:4321/blog/" class="no-underline hover:underline">MORE</a>
-    </main>
-  </div>
+    </div>
 
   <ul class=class="space-y-3">
     {blogposts
@@ -98,8 +94,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
     </div>
 
     <br>
-    
-    <a href="http://localhost:4321/help" class="no-underline hover:underline">MORE</a>
+      <a href="http://localhost:4321/help" class="no-underline hover:underline">MORE</a>
   </div>
   <ul class="space-y-3">
     {helpPosts
