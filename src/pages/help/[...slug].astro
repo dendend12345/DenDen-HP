@@ -4,16 +4,16 @@ import type { CollectionEntry } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
-  const helpEntries = await getCollection('help', ({ data }) => {
-    // 開発環境(import.meta.env.DEV)ならdraftも含め、本番環境(PROD)ならdraft以外を取得する
-    return import.meta.env.DEV || !data.draft;
-  });
+  // 第2引数のフィルターを設定しない（または常に true を返す）ことで、
+  // 本番ビルド時（astro build）でも draft: true の記事を含めて生成します
+  const helpEntries = await getCollection('help');
 
   return helpEntries.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
+
 
 interface Props {
   entry: CollectionEntry<'help'>;
