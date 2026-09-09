@@ -4,7 +4,11 @@ import type { CollectionEntry } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
-  const helpEntries = await getCollection('help');
+  const helpEntries = await getCollection('help', ({ data }) => {
+    // 開発環境(import.meta.env.DEV)ならdraftも含め、本番環境(PROD)ならdraft以外を取得する
+    return import.meta.env.DEV || !data.draft;
+  });
+
   return helpEntries.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
