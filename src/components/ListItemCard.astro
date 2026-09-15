@@ -27,11 +27,13 @@ const formattedDate = new Date(pubDate.getTime() + 9 * 60 * 60 * 1000)
 </li> -->
 
 <li>
-  <a
-    href={`/${basePath}/${slug}`}
-    class="flex items-center gap-2 leading-tight text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-110 origin-left"
-  >
-    <span>{title}</span>
-    <span class="text-xs text-neutral-500 font-mono">({formattedDate}{suffix ? ` ${suffix}` : ''})</span>
-  </a>
+  <div class="overflow-x-hidden">
+    <a
+      href={`/${basePath}/${slug}`}
+      class="flex items-center gap-2 leading-tight text-green-400 font-medium transition-transform duration-300 ease-out hover:scale-110 origin-left"
+    >
+      <span>{title}</span>
+      <span class="text-xs text-neutral-500 font-mono">({formattedDate}{suffix ? ` ${suffix}` : ''})</span>
+    </a>
+  </div>
 </li>
