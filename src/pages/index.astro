@@ -46,6 +46,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
       <a href="http://dendend12345.com/news" class="no-underline hover:underline">MORE</a>
   </div>
   
+<!-- ↓ 動く ↓ -->
   <ul class=class="space-y-3">
     {newsposts
       .slice(0, 3)
@@ -60,6 +61,21 @@ const helpPosts = await getCollection('help', ({ data }) => {
       </li>
   </ul>
 
+<!-- ↓ 動かない ↓ -->
+  <!-- <ul class=class="space-y-3">
+    {newsposts
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .slice(0, 3)
+      .map(post => (
+        <ListItemCard
+          basePath="news"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.date}
+        />
+      ))}
+  </ul> -->
+  
   <br>
   
   <div style="display: flex; align-items: center; gap: 10px;">
