@@ -1,0 +1,55 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { ViewTransitions } from 'astro:transitions';
+---
+<MainLayout title="でんでんの飼育小屋">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ViewTransitions />
+  </head>
+  <body>
+
+    <div class="image-container">
+      <img src="/images/logo.png" alt="でんでんロゴ" class="logo-img"/> 
+      <img src="/images/denden_trans.png" alt="でんでん" class="animation_denden"/>
+    </div>
+
+    <style>
+      .image-container {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+      }
+
+      .logo-img {
+        width: 500px;
+        margin-left: 0;
+        margin-right: auto; 
+      }
+
+      .animation_denden {
+        width: 750px;
+        margin-left: -150px;
+        position: relative;
+        z-index: 2;
+        
+        animation: slideIn 0.8s ease forwards;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        } 
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+
+  </body>
+
+</MainLayout>
