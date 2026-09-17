@@ -19,8 +19,8 @@ const { Content } = await render(entry);
 ---
 
 <MainLayout title={entry.data.title}>
-  <article class="prose prose-invert text-[#d1ffd1] prose-p:text-[#d1ffd1] prose-headings:text-[#d1ffd1] prose-a:text-[#4ade80] mx-auto">
-    <h1>{entry.data.title}</h1>
+  <article class="prose prose-invert text-[#d1ffd1] prose-a:text-sm prose-a:break-all prose-p:text-[#d1ffd1] prose-headings:text-[#d1ffd1] prose-a:text-[#4ade80] mx-auto">
+    <h1 class="title">{entry.data.title}</h1>
     <p>公開日: {entry.data.date.toLocaleDateString('ja-JP')}</p>
     <hr />
     <Content /> 
@@ -33,4 +33,11 @@ const { Content } = await render(entry);
     margin: 0 auto;
     line-height: 1.6;
   }
+
+   @media (max-width: 600px) {
+    .title {
+      font-size: 100%;
+      margin-bottom: 1rem;
+    }
+  } 
 </style>

@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import ListItemCard from '../components/ListItemCard.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+const newsposts = await getCollection('news', ({ data }) => {
+  return data.draft !== true;
+});
+
+const blogposts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const helpPosts = await getCollection('help', ({ data }) => {
+  return data.draft !== true;
+});
+
+---
+<MainLayout title="でんでんの飼育小屋">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ViewTransitions />
+  </head>
+  
+  <div class="text-3xl font-bold tracking-tight text-white-900">
+    HOME
+  </div>
+
+  <br>
+
+  <div class="text-1xl font-bold tracking-tight text-white-900">
+    ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。
+  </div>
+  
+  <div style="display: flex; align-items: center; gap: 10px;">
+    
+  <div class="text-1xl font-bold tracking-tight text-white-900">
+    新着お知らせ
+  </div>
+
+    <br><br>
+
+      <a href="http://dendend12345.com/news" class="no-underline hover:underline">MORE</a>
+  </div>
+  
+  <ul class=class="space-y-3">
+    {newsposts
+      .slice(0, 3)
+      .map(post => (
+        <ListItemCard
+          basePath="news"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.date}
+        />
+      ))}
+      </li>
+  </ul>  
+  <br>
+  
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <div class="text-1xl font-bold tracking-tight text-white-900">
+      新着ブログ
+    </div>
+
+    <br><br>
+      <a href="http://dendend12345.com/blog/" class="no-underline hover:underline">MORE</a>
+    </div>
+
+  <ul class=class="space-y-3">
+    {blogposts
+      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+      .slice(0, 3)
+      .map(post => (
+        <ListItemCard
+          basePath="blog"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.pubDate}
+        />
+      ))}
+  </ul>
+
+  <br>
+
+  <div style="display: flex; align-items: center; gap: 10px;">
+
+    <div class="text-1xl font-bold tracking-tight text-white-900">
+      新着ヘルプ
+    </div>
+
+    <br><br>
+      <a href="http://dendend12345.com/help" class="no-underline hover:underline">MORE</a>
+  </div>
+  <ul class="space-y-0">
+    {helpPosts
+      .slice(0, 3)
+      .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
+      .map(post => (
+        <ListItemCard
+          key={post.slug}
+          basePath="help"
+          slug={post.slug}
+          title={post.data.title}
+          pubDate={post.data.helpPubDate}
+        />
+      ))}
+  </ul>
+</MainLayout>
+
+<style is:global>
+body {
+  background-image: url('/images/denden_header2.png');
+  background-attachment: fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    background-size: contain;
+    background-position: bottom center;
+  }
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  main {
+    padding: 1rem;
+  }
+}
+</style>

@@ -1,154 +1,119 @@
 ---
-import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
-import ListItemCard from '../components/ListItemCard.astro';
 import { ViewTransitions } from 'astro:transitions';
-
-
-
-const newsposts = await getCollection('news', ({ data }) => {
-  return data.draft !== true;
-});
-
-const blogposts = await getCollection('blog', ({ data }) => {
-  return data.draft !== true;
-});
-
-const helpPosts = await getCollection('help', ({ data }) => {
-  return data.draft !== true;
-});
-
 ---
 <MainLayout title="でんでんの飼育小屋">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <ViewTransitions />
   </head>
-  
-  <div class="text-3xl font-bold tracking-tight text-white-900">
-    HOME
-  </div>
+  <body>
 
-  <br>
-
-  <div class="text-1xl font-bold tracking-tight text-white-900">
-    ここはでんでんの飼育小屋です。でんでんのポートフォリオや日々の活動を紹介しています。
-  </div>
-  
-  <div style="display: flex; align-items: center; gap: 10px;">
-    
-  <div class="text-1xl font-bold tracking-tight text-white-900">
-    新着お知らせ
-  </div>
-
-    <br><br>
-
-      <a href="http://dendend12345.com/news" class="no-underline hover:underline">MORE</a>
-  </div>
-  
-<!-- ↓ 動く ↓ -->
-  <ul class=class="space-y-3">
-    {newsposts
-      .slice(0, 3)
-      .map(post => (
-        <ListItemCard
-          basePath="news"
-          slug={post.slug}
-          title={post.data.title}
-          pubDate={post.data.date}
-        />
-      ))}
-      </li>
-  </ul>
-
-<!-- ↓ 動かない ↓ -->
-  <!-- <ul class=class="space-y-3">
-    {newsposts
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-      .slice(0, 3)
-      .map(post => (
-        <ListItemCard
-          basePath="news"
-          slug={post.slug}
-          title={post.data.title}
-          pubDate={post.data.date}
-        />
-      ))}
-  </ul> -->
-  
-  <br>
-  
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <div class="text-1xl font-bold tracking-tight text-white-900">
-      新着ブログ
+    <div class="image-container">
+      <img src="/images/denden_trans.png" alt="でんでん" class="animation-denden-logo"/>
+      <img src="/images/logo.png" alt="でんでんロゴ" class="logo-img"/>   
+      <div class="text-container">
+        <h1 class="official-site-text">
+          ー OFFICIAL SITE ー
+        </h1>
+      </div>
+    </div>
+ 
+    <div class="text-5xl font-bold tracking-tight text-white-900 text-center my-20">
+      ここはでんでんの飼育小屋です。<br>
+      でんでんのポートフォリオや日々の活動を紹介しています。
     </div>
 
-    <br><br>
-      <a href="http://dendend12345.com/blog/" class="no-underline hover:underline">MORE</a>
-    </div>
+    <style is:global>
 
-  <ul class=class="space-y-3">
-    {blogposts
-      .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-      .slice(0, 3)
-      .map(post => (
-        <ListItemCard
-          basePath="blog"
-          slug={post.slug}
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-        />
-      ))}
-  </ul>
+      @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
 
-  <br>
+      .image-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        top: -100px;
+      }
+        
+      .logo-img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-  <div style="display: flex; align-items: center; gap: 10px;">
+      .animation-denden-logo {
+        position: absolute;
+        bottom: -25%;
+        left: 10%;
+        width: 35%;
+        z-index: 2;
+        animation: slideIn 0.8s ease forwards;
+      }
 
-    <div class="text-1xl font-bold tracking-tight text-white-900">
-      新着ヘルプ
-    </div>
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        } 
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-    <br><br>
-      <a href="http://dendend12345.com/help" class="no-underline hover:underline">MORE</a>
-  </div>
-  <ul class="space-y-0">
-    {helpPosts
-      .slice(0, 3)
-      .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
-      .map(post => (
-        <ListItemCard
-          key={post.slug}
-          basePath="help"
-          slug={post.slug}
-          title={post.data.title}
-          pubDate={post.data.helpPubDate}
-        />
-      ))}
-  </ul>
+      .official-site-text {
+        position: absolute;
+        /* bottom: -10%; */
+        right: -2%;
+        font-family: "Noto Sans Japanese", sans-serif;
+        font-weight: 800;
+        font-size: 3.2vw;
+        color: #FFFFFF;
+        z-index: 3;
+        white-space: nowrap;
+      }
+
+      .official-site-text  {
+        animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        60% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+
+        .text-5xl {
+          font-size: 0.7rem;
+          margin: -40% 0;
+        }
+
+        .image-container{
+          width: 100%;
+          max-width: 100%;
+          margin: 30%  auto;
+        }
+
+        .official-site-text {
+          font-size: 1rem;
+          right: 2%;
+          top: 98%;
+        }
+      }
+    </style>
+
+  </body>
+
 </MainLayout>
-
-<style is:global>
-body {
-  background-image: url('/images/denden_header2.png');
-  background-attachment: fixed;
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-    background-size: contain;
-    background-position: bottom center;
-  }
-  nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  main {
-    padding: 1rem;
-  }
-}
-</style>
