@@ -1,7 +1,24 @@
 ---
+
+import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
+import ListItemCard from '../components/ListItemCard.astro';
 import { ViewTransitions } from 'astro:transitions';
+
+const newsposts = await getCollection('news', ({ data }) => {
+  return data.draft !== true;
+});
+
+const blogposts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const helpPosts = await getCollection('help', ({ data }) => {
+  return data.draft !== true;
+});
+
 ---
+
 <MainLayout title="でんでんの飼育小屋">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +39,92 @@ import { ViewTransitions } from 'astro:transitions';
     <div class="text-5xl font-bold tracking-tight text-white-900 text-center my-20">
       ここはでんでんの飼育小屋です。<br>
       でんでんのポートフォリオや日々の活動を紹介しています。
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+      <div>
+
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white-900 whitespace-nowrap">
+            新着NEWS
+          </span>
+          <a href="http://dendend12345.com/news/" class="btn-more shrink-0">
+            <span>MORE</span>
+            <svg class="btn-more-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <ul class="space-y-3">
+          {newsposts
+            .slice(0, 2)
+            .map(post => (
+              <ListItemCard
+                basePath="news"
+                slug={post.slug}
+                title={post.data.title}
+                pubDate={post.data.date}
+              />
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white-900 whitespace-nowrap">
+            新着ブログ
+          </span>
+          <a href="http://dendend12345.com/blog/" class="btn-more shrink-0">
+            <span>MORE</span>
+            <svg class="btn-more-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <ul class="space-y-3">
+          {blogposts
+            .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+            .slice(0, 2)
+            .map(post => (
+              <ListItemCard
+                basePath="blog"
+                slug={post.slug}
+                title={post.data.title}
+                pubDate={post.data.pubDate}
+              />
+            ))}
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white-900 whitespace-nowrap">
+            新着ヘルプ
+          </span>
+          <a href="http://dendend12345.com/help/" class="btn-more shrink-0">
+            <span>MORE</span>
+            <svg class="btn-more-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <ul class="space-y-3">
+          {helpPosts
+            .slice(0, 2)
+            .sort((a, b) => b.data.helpPubDate.getTime() - a.data.helpPubDate.getTime())
+            .map(post => (
+              <ListItemCard
+                basePath="help"
+                slug={post.slug}
+                title={post.data.title}
+                pubDate={post.data.helpPubDate}
+              />
+            ))}
+        </ul>
+      </div>
     </div>
 
     <style is:global>
@@ -64,7 +167,7 @@ import { ViewTransitions } from 'astro:transitions';
 
       .official-site-text {
         position: absolute;
-        /* bottom: -10%; */
+        bottom: 0%;
         right: -2%;
         font-family: "Noto Sans Japanese", sans-serif;
         font-weight: 800;
@@ -93,25 +196,68 @@ import { ViewTransitions } from 'astro:transitions';
         }
       }
 
+      .btn-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem; /* gap-1.5 */
+        padding: 0.25rem 0.75rem; /* px-3 py-1 */
+        font-size: 1.25em; /* text-xs */
+        font-weight: 600; /* font-semibold */
+        color: #4ade80; /* text-green-400 */
+        background-color: #171717; /* bg-neutral-900 */
+        border: 1px solid rgba(64, 64, 64, 0.6); /* border-neutral-700/60 */
+        border-radius: 9999px; /* rounded-full */
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .btn-more:hover {
+        background-color: #262626; /* hover:bg-neutral-800 */
+        border-color: #4ade80; /* hover:border-green-400 */
+        box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+      }
+
+      .btn-more:hover .btn-more-icon {
+        transform: translateX(2px);
+      }
+
+      .btn-more-icon {
+        width: 0.875rem;
+        height: 0.875rem;
+        transition: transform 0.2s ease;
+      }
+
       @media (max-width: 768px) {
 
         .text-5xl {
-          font-size: 0.7rem;
-          margin: -40% 0;
-        }
+          font-size: 0.725rem;
+          margin-top: 50px;
+          margin-bottom: 30px;
+          line-height: 1.6;
+          }
 
         .image-container{
           width: 100%;
           max-width: 100%;
-          margin: 30%  auto;
+          margin: 0 auto 20px auto; 
+          top: 0;
         }
 
         .official-site-text {
-          font-size: 1rem;
+          font-size: 4.5vw;
           right: 2%;
-          top: 98%;
+          bottom: -5%;
         }
       }
+
+      .text-3xl {
+        font-size: 1rem;
+      }
+
+      .link{
+        font-size: 1rem;
+      }
+
     </style>
 
   </body>
