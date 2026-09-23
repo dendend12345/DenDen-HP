@@ -127,6 +127,46 @@ const helpPosts = await getCollection('help', ({ data }) => {
       </div>
     </div>
 
+    <br>
+
+    <div class="tab-4 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 w-full">
+      <label>
+        <input type="radio" name="tab-4" checked>
+        <span class="text-2xl tab-title">
+          CREATE🖋
+        <span>
+      </label>
+      <div class="text-center">
+        <span class="text-4xl tab-content">
+          動画編集、サムネイル作成、ロゴデザイン、HPなどなど…各種デザインの制作を承ります！
+        </span>
+      </div>
+
+      <label>
+        <input type="radio" name="tab-4">
+          <span class="text-2xl tab-title">
+            Server🖥
+          <span>
+      </label>
+      <div class="text-center">
+        <span class="text-4xl tab-content text-center">
+          Minecraft、Ark、Rust、7DTDなど、ゲームサーバーの構築、運用を承ります！
+        </span>
+      </div>
+
+      <label>
+        <input type="radio" name="tab-4">
+        <span class="text-3xl tab-title">
+          Dev⚙
+        <span>
+      </label>
+      <div class="text-center">
+        <span class="text-4xl tab-content text-center">
+          Minecraftのデータパックやプラグインの開発、GASなどを用いた業務効率化アプリの作成を承ります！
+        </span>
+      </div>
+    </div>
+
     <style is:global>
 
       @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
@@ -199,21 +239,21 @@ const helpPosts = await getCollection('help', ({ data }) => {
       .btn-more {
         display: inline-flex;
         align-items: center;
-        gap: 0.375rem; /* gap-1.5 */
-        padding: 0.25rem 0.75rem; /* px-3 py-1 */
-        font-size: 1.25em; /* text-xs */
-        font-weight: 600; /* font-semibold */
-        color: #4ade80; /* text-green-400 */
-        background-color: #171717; /* bg-neutral-900 */
-        border: 1px solid rgba(64, 64, 64, 0.6); /* border-neutral-700/60 */
-        border-radius: 9999px; /* rounded-full */
+        gap: 0.375rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25em;
+        font-weight: 600;
+        color: #4ade80;
+        background-color: #171717;
+        border: 1px solid rgba(64, 64, 64, 0.6);
+        border-radius: 9999px;
         transition: all 0.2s ease;
         text-decoration: none;
       }
 
       .btn-more:hover {
-        background-color: #262626; /* hover:bg-neutral-800 */
-        border-color: #4ade80; /* hover:border-green-400 */
+        background-color: #262626;
+        border-color: #4ade80;
         box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
       }
 
@@ -225,6 +265,65 @@ const helpPosts = await getCollection('help', ({ data }) => {
         width: 0.875rem;
         height: 0.875rem;
         transition: transform 0.2s ease;
+      }
+
+      .text-3xl {
+        font-size: 1rem;
+      }
+
+      .link{
+        font-size: 1rem;
+      }
+
+      .tab-4 {
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 1920px;
+      }
+
+      .tab-4 > label {
+          flex: 1 1;
+          order: -1;
+          position: relative;
+          min-width: 70px;
+          padding: .7em 1em;
+          color: #999;
+                  font-weight: 600;
+          font-size: .9em;
+          text-align: center;
+          cursor: pointer;
+      }
+
+      .tab-4 > label:hover,
+      .tab-4 label:has(:checked) {
+          background-color: #14532d99;
+          color: #fff;
+      }
+
+      .tab-4 label:has(:checked)::before {
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 18px;
+          height: 9px;
+          background-color: #14532d99;
+          content: '';
+          clip-path: polygon(0 0, 100% 0, 50% 100%);
+      }
+
+      .tab-4 input {
+          display: none;
+      }
+
+      .tab-4 > div {
+          display: none;
+          width: 100%;
+          padding: 1.5em 1em;
+      }
+
+      .tab-4 label:has(:checked) + div {
+          display: block;
       }
 
       @media (max-width: 768px) {
@@ -240,7 +339,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
           width: 100%;
           max-width: 100%;
           margin: 0 auto 20px auto; 
-          top: 0;
+          top: -25px;
         }
 
         .official-site-text {
@@ -248,16 +347,16 @@ const helpPosts = await getCollection('help', ({ data }) => {
           right: 2%;
           bottom: -5%;
         }
-      }
 
-      .text-3xl {
-        font-size: 1rem;
-      }
+        .tab-title{
+          font-size: 0.85rem;
+        }
 
-      .link{
-        font-size: 1rem;
+        .tab-content{
+          font-size: 1rem;
+          line-height: 50%; 
+        }
       }
-
     </style>
 
   </body>

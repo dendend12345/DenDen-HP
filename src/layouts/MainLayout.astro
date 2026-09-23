@@ -58,19 +58,23 @@ const { title } = Astro.props;
     <style is:global>
       @media (max-width: 600px) {
         body nav.nav {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: center;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
           width: 100%;
-          row-gap: 8px;
-          padding: 0;
+          max-width: 320px;       /* ナビの最大幅 */
+          gap: 8px 4px;
+          padding: 0;             /* パディングを0にして確実な中央寄せへ */
+          margin: 0 auto !important; /* 強制的に左右自動マージンで中央寄せ */
+          box-sizing: border-box;
         }
 
         body nav.nav a {
-          width: 10%;
-          text-align: center;
-          font-size: 0.9rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          font-size: 0.72rem;
+          line-height: 1;
           white-space: nowrap;
           box-sizing: border-box;
         }
