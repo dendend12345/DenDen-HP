@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ListItemCard from '../components/ListItemCard.astro';
 import { ViewTransitions } from 'astro:transitions';
-
+import Footer from '../components/Footer.astro';
 
 const posts = await getCollection('news', ({ data }) => {
   return data.draft !== true;
@@ -15,13 +15,14 @@ const posts = await getCollection('news', ({ data }) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <ViewTransitions />
   </head>
-  <div class="text-3xl font-bold tracking-tight text-white-900">
-    NEWS 📰
-  </div>
+  <body>
+    <div class="text-3xl font-bold tracking-tight text-white-900">
+      NEWS 📰
+    </div>
 
-  <br>
+    <br>
 
-  <ul class="space-y-3">
+    <ul class="space-y-3">
       {posts
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
         .map(post => (
@@ -33,4 +34,6 @@ const posts = await getCollection('news', ({ data }) => {
           />
         ))}
     </ul>
+    <Footer />
+  </body>
 </MainLayout>

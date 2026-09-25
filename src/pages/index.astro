@@ -3,6 +3,7 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
 import ListItemCard from '../components/ListItemCard.astro';
+import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 const newsposts = await getCollection('news', ({ data }) => {
@@ -358,7 +359,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
         }
       }
     </style>
-
+    <Footer />
   </body>
 
 </MainLayout>
