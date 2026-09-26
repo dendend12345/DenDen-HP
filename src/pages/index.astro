@@ -138,9 +138,21 @@ const helpPosts = await getCollection('help', ({ data }) => {
         <span>
       </label>
       <div class="text-center">
-        <span class="text-4xl tab-content">
+        <span class="text-4xl font-bold tab-content">
           動画編集、サムネイル作成、ロゴデザイン、HPなどなど…各種デザインの制作を承ります！
         </span>
+        <div class="flex items-center justify-center gap-12">
+          <img 
+            src="/images/icooon/Display_pictogram.png" 
+            alt="Display_pictogram" 
+            class="absolute top-4 right-4 w-16 h-auto"
+          >
+          <div>
+            <p>
+              テキスト
+            </p>
+          </div>
+        </div>
       </div>
 
       <label>
@@ -150,7 +162,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
           <span>
       </label>
       <div class="text-center">
-        <span class="text-4xl tab-content text-center">
+        <span class="text-4xl font-bold tab-content text-center">
           Minecraft、Ark、Rust、7DTDなど、ゲームサーバーの貸し出し、構築、運用を承ります！
         </span>
       </div>
@@ -162,7 +174,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
         <span>
       </label>
       <div class="text-center">
-        <span class="text-4xl tab-content text-center">
+        <span class="text-4xl font-bold tab-content text-center">
           Minecraftのデータパックやプラグインの開発、GASなどを用いた業務効率化アプリの作成を承ります！
         </span>
       </div>
@@ -208,7 +220,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
       .official-site-text {
         position: absolute;
-        bottom: 0%;
+        bottom: -5%;
         right: -2%;
         font-family: "Noto Sans Japanese", sans-serif;
         font-weight: 800;
