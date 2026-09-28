@@ -46,11 +46,11 @@ const { title } = Astro.props;
       <a href="/">HOME</a>
       <a href="/about">ABOUT</a>
       <a href="/work">WORK</a>
-      <a href="/request">REQUEST</a>
       <a href="/blog">BLOG</a>
       <a href="/help">HELP</a>
       <a href="/product">PRODUCT</a>
       <a href="/news">NEWS</a>
+      <a>🐌</a>
     </nav>
     <main>
       <slot /> 
@@ -71,7 +71,6 @@ const { title } = Astro.props;
         gap: 12px 6px;
         padding: 10px 0 16px 0 !important; 
         margin: 0 auto 2.5rem auto !important; 
-        
         box-sizing: border-box;
       }
 
@@ -80,8 +79,8 @@ const { title } = Astro.props;
         justify-content: center;
         align-items: center;
         width: 100%;
-        font-size: 0.75rem;
-        line-height: 1.4;
+        font-size: 1rem;
+        line-height: 1;
         padding: 2px 0;
         margin-right: 0 !important;
         white-space: nowrap;
