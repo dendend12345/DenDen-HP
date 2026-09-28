@@ -130,55 +130,230 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
     <br>
 
+    <div class="request-introduce text-center text-2xl font-bold">
+      現在有償にて様々なご依頼を受け付け中！<br>
+      でんでんと一緒にいろんなものを作っていこう🐌
+    </div>
+
+    <br>
+
+    <!-- タブの開始 -->
     <div class="tab-4 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 w-full">
+
+      <!-- CREATE -->
       <label>
         <input type="radio" name="tab-4" checked>
-        <span class="text-2xl tab-title">
-          CREATE🖋
-        <span>
+        <span class="text-2xl tab-title">CREATE🖋</span>
       </label>
+
       <div class="text-center">
-        <span class="text-4xl font-bold tab-content">
+        <span class="text-2xl md:text-2xl font-bold tab-content">
           動画編集、サムネイル作成、ロゴデザイン、HPなどなど…各種デザインの制作を承ります！
         </span>
-        <div class="flex items-center justify-center gap-12">
-          <img 
-            src="/images/icooon/Display_pictogram.png" 
-            alt="Display_pictogram" 
-            class="absolute top-4 right-4 w-16 h-auto"
-          >
-          <div>
-            <p>
-              テキスト
+
+        <!-- 2列 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+          <!-- 動画編集 -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">動画編集</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1本 2,500円～
             </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3">
+              ショート動画や投稿用動画、切り抜きなどに！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・テロップ入れ、SE・BGMの挿入など</li>
+              <li>・（例）ショート動画：1本 2,500円〜 / 横動画：1本 5,000円〜</li>
+              <li>・修正2回まで（大幅な改修は別途料金を頂くことがあります）</li>
+            </ul>
+          </div>
+            
+          <!-- サムネイル作成 -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">
+                サムネイル作成
+              </h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1枚 1,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3">
+              投稿用動画のサムネイルや広報用チラシ、広告バナーなどに！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・素材取得に時間がかかる場合は追加料金を頂きます</li>
+              <li>・修正は2回まで（大幅な改修は別途料金を頂くことがあります）</li>
+            </ul>
+          </div>
+
+          <!-- ロゴデザイン -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">ロゴデザイン</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1個 15,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3">
+              活動、イベントや企業用ロゴに！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・デザイン料別</li>
+              <li>・修正2回まで（大幅な改修は別途料金を頂くことがあります）</li>
+            </ul>
+          </div>
+
+          <!-- HP -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">HP</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1サイト 30,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3">
+              公式HPやポートフォリオ、ブログなどの運用に！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・デザイン料別</li>
+              <li>・保守料別</li>
+              <li>・サーバー / ドメイン料別</li>
+              <li>・修正1回まで（大幅な改修は別途料金を頂くことがあります）</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SERVER -->
+      <label>
+        <input type="radio" name="tab-4">
+        <span class="text-2xl tab-title">SERVER🖥</span>
+      </label>
+
+      <div class="text-center">
+        <span class="text-2xl md:text-2xl font-bold tab-content">
+          各種ゲームサーバー構築運用を承ります！
+        </span>
+
+        <!-- 2列 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+          <!-- サーバーレンタル -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">サーバーレンタル</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1カ月 1,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3 ">
+              配信活動や友達と遊びたい方へ！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・（例）2G：1,000円〜 / 8G：3,500円〜</li>
+              <li>・Ubuntuへのアクセス権限はございません（サーバー構築 / 運用とセットがデフォルトになります）</li>
+            </ul>
+          </div>
+            
+          <!-- サーバー -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">サーバー構築 / 運用</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1カ月 2,500円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3 ">
+              煩わしい設定や軽量化はお任せ！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・Minecraft / ARK / 7dtd / Rustなど</li>
+              <li>・データパック / プラグイン / MOD導入は別料金</li>
+            </ul>
           </div>
         </div>
       </div>
 
+      <!-- DEV -->
       <label>
         <input type="radio" name="tab-4">
-          <span class="text-2xl tab-title">
-            SERVER🖥
-          <span>
+        <span class="text-2xl tab-title">DEV⚙</span>
       </label>
+
       <div class="text-center">
-        <span class="text-4xl font-bold tab-content text-center">
-          Minecraft、Ark、Rust、7DTDなど、ゲームサーバーの貸し出し、構築、運用を承ります！
+        <span class="text-2xl md:text-2xl font-bold tab-content">
+          各種ツールやMinecraftのゲーム / ツール作成いたします！
         </span>
+
+        <!-- 2列 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+          <!-- Minecraft -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">Minecraft開発</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1個 15,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3 ">
+              オリジナルゲーム制作に！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・データパック、プラグインを用いた開発</li>
+              <li>・ウォーターフォール、アジャイルどちらも承ります</li>
+            </ul>
+          </div>
+            
+          <!-- ツール作成 -->
+          <div class="bg-green-900/60 border border-emerald-500/30 rounded-xl p-6 shadow-lg transition-all text-center">
+            <div class="mb-3">
+              <h3 class="text-2xl font-bold text-white-900">ツール作成</h3>
+            </div>
+            <p class="text-2xl font-bold text-white mb-3">
+              1個 30,000円～
+            </p>
+            <p class="content-explanation text-1xl font-bold text-white mb-3 ">
+              業務効率化やDX化に！
+            </p>
+            <ul class="text-sm text-gray-300 space-y-1 bg-black/20 p-3 rounded-lg border border-emerald-900/50 text-left">
+              <li>・GASやVBA、Pythonを用いた開発</li>
+              <li>・ウォーターフォール、アジャイルどちらも承ります</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <label>
-        <input type="radio" name="tab-4">
-        <span class="text-2xl tab-title">
-          DEV⚙
-        <span>
-      </label>
-      <div class="text-center">
-        <span class="text-4xl font-bold tab-content text-center">
-          Minecraftのデータパックやプラグインの開発、GASなどを用いた業務効率化アプリの作成を承ります！
-        </span>
-      </div>
     </div>
+
+    <p class="free-consultation flex justify-center text-4xl">
+      ✨ご相談は無料です✨
+    </p>
+
+    <p class="contact flex justify-center text-2xl">
+      連絡先
+    </p>
+    <p class="contact-url flex justify-center text-2xl">
+      X：
+      <a href="https://x.com/dendend12345" class=" flex justify-center text-2xl">
+        https://x.com/dendend12345
+      </a>
+    </p>
+  
+    <p class="contact-url flex justify-center text-2xl">
+      MAIL：
+      <a href="2dendenden2@gmail.com" class=" flex justify-center text-2xl">
+        2dendenden2@gmail.com
+      </a>
+    </p>
+
+    <br>
 
     <style is:global>
 
@@ -361,6 +536,11 @@ const helpPosts = await getCollection('help', ({ data }) => {
           bottom: -5%;
         }
 
+        .request-introduce{
+          font-size: 1rem;
+          line-height: 150%;
+        }
+
         .tab-title{
           font-size: 0.85rem;
         }
@@ -368,6 +548,22 @@ const helpPosts = await getCollection('help', ({ data }) => {
         .tab-content{
           font-size: 1rem;
           line-height: 50%; 
+        }
+
+        .content-explanation{
+          line-height: 150%;
+        }
+
+        .free-consultation{
+          font-size: 1.5rem;
+        }
+
+        .contact{
+          font-size: 1.25rem;
+        }
+
+        .contact-url{
+          font-size: 1.25rem;
         }
       }
     </style>
