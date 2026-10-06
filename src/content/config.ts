@@ -23,7 +23,7 @@ const news = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.date(),
-    draft: z.boolean().default(false),
+    unlisted: z.boolean().default(false),
   }),
 });
 
