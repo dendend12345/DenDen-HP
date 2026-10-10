@@ -59,6 +59,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
 
         <ul class="space-y-3">
           {newsposts
+            .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
             .slice(0, 2)
             .map(post => (
               <ListItemCard
@@ -67,7 +68,7 @@ const helpPosts = await getCollection('help', ({ data }) => {
                 title={post.data.title}
                 pubDate={post.data.date}
               />
-          ))}
+            ))}
         </ul>
       </div>
 
