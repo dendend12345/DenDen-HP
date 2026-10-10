@@ -1,6 +1,6 @@
 ---
 title: "きゅーたん様 Minecraftサーバー運営のご紹介"
-date: 2026-10-06
+date: 2026-10-10
 draft: false
 ---
 
